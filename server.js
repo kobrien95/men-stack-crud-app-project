@@ -11,11 +11,32 @@ const authController = require('./controllers/auth.js');
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
+// -----------------------------
+
+// server.js
+const isSignedIn = require('./middleware/is-signed-in.js');
+const passUserToView = require('./middleware/pass-user-to-view.js');
+
+
+// -----------------------------
+
+const shoesController = require('./controllers/shoes.js');
+
+// ------------------------------
+
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
+
+// -------------------------------
+
+app.use('/auth', authController);
+// app.use('/users/:userId/shoes', shoesController);
+
+// -------------------------------
+
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
@@ -43,6 +64,13 @@ app.get('/vip-lounge', (req, res) => {
 });
 
 app.use('/auth', authController);
+
+
+app.use(passUserToView);
+app.use('/auth', authController);
+app.use(isSignedIn);
+// app.use('/users/:userId/shoes', shoesController);
+
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
