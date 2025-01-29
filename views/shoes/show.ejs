@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= shoe.shoeType %></h1>
+    <% if (shoe.price) { %>
+        <p>Price: <%= shoe.price %></p>
+    <% } %> <% if (shoe.intrestLevel) { %>
+        <p>Intrest Level: <%= shoe.intrestLevel %></p>
+    <% } %>
+    
+    <a href="/users/<%= user._id %>/shoes/<%= shoe._id %>/edit">
+        Edit this shoe
+    </a>
+
+    <form
+        action="/users/<%= user._id %>/shoes/<%= shoe._id %>?_method=DELETE"
+        method="POST"
+    >
+        <button type="submit">Delete this shoe</button>
+</body>
+</html>
