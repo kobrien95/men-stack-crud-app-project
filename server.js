@@ -25,15 +25,26 @@ const shoesController = require('./controllers/shoes.js');
 
 // ------------------------------
 
+const path = require('path');
+
+// ------------------------------
+
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
+// --------------------------------------
+
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
+
+// new code below this line ---
+app.use(express.static(path.join(__dirname, 'public')));
+// new code above this line ---
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -75,6 +86,16 @@ app.use('/auth', authController);
 
 app.use(isSignedIn);
 app.use('/users/:userId/shoes', shoesController);
+
+// --------------------------------
+
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: true,
+//   })
+// );
 
 // --------------------------------
 

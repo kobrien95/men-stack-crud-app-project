@@ -1,4 +1,7 @@
+
 <nav>
+    <!-- views/partials/_navbar.ejs -->
+    <link rel="stylesheet" href="/stylesheets/partials.css" />
     <a href="/">Home</a>
     <% if(user) { %>
     <a href="/users/<%=user._id%>/shoes">View my Closet</a>
@@ -8,4 +11,3 @@
     <a href="/auth/sign-up">Sign Up</a>
     <% } %>
   </nav>
-  
