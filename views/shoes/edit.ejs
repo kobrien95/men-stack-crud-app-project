@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing <%= shoe.title %></title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Edit <%= shoe.title %> at <%= shoe.shoeType %></h1>
+
+    <form
+    action="/users/<%= user._id %>/shoes/<%= shoe._id %>?_method=PUT"
+    method="POST"
+    >
+
+    <label for="shoeType">Shoe Type:</label>
+    <input 
+    type="text" 
+    name="shoeType" 
+    id="shoeType"
+    vaule="<%= shoe.shoeType %> "
+    />
+
+    <label for="price">Price:</label>
+    <input 
+    type="text" 
+    name="price" 
+    id="price"
+    vaule="<%= shoe.price %>"
+    />
+
+    <label for="size">Size:</label>
+    <input 
+    type="text" 
+    name="size" 
+    id="size"
+    vaule="<%= shoe.size %>"
+    />
+
+    <label for="intrestLevel">Intrest Level:</label>
+    <input 
+    type="text" 
+    name="intrestLevel" 
+    id="intrestLevel"
+    vaule="<%= shoe.intrestLevel %>"
+    />
+
+    <button type="submit">Add Shoe</button>
+
+    </form>
+
+</body>
+</html>

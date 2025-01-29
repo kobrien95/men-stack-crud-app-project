@@ -83,5 +83,24 @@ router.post('/', async (req, res) => {
     }
 })
 
+// -----------------------------------
+
+
+router.put('/:shoeId', async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.session.user._id);
+    const shoe = currentUser.shoes.id(req.params.shoeId);
+    shoe.set(req.body);
+    await currentUser.save();
+    res.redirect(
+      `/users/${currentUser._id}/shoes/${req.params.shoeId}`
+    );
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
+
 module.exports = router;
 
