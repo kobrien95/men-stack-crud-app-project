@@ -39,11 +39,11 @@ mongoose.connection.on('connected', () => {
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-// app.use(morgan('dev'));
 
-// new code below this line ---
+
+
 app.use(express.static(path.join(__dirname, 'public')));
-// new code above this line ---
+
 
 app.use(
   session({
@@ -87,17 +87,6 @@ app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/users/:userId/shoes', shoesController);
 
-// --------------------------------
-
-// app.use(
-//   session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: true,
-//   })
-// );
-
-// --------------------------------
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

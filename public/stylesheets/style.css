@@ -1,8 +1,8 @@
-/* public/stylesheets/style.css */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* public/stylesheets/style.css */
+
 
 body {
     display: flex;
@@ -65,7 +65,6 @@ body {
     background-color: black;
   }
 
-  /* public/stylesheets/style.css */
 
 .signin-container,
 .signup-container {
