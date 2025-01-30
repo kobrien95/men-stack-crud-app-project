@@ -1,0 +1,26 @@
+body {
+    background-image: url('https://i.pinimg.com/originals/03/08/34/030834f7223ebfd68a5b7a0749b1659e.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-right: 80px;
+    text-decoration: underline;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    margin-right: 80px;
+}
+
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-right: 80px;
+}
