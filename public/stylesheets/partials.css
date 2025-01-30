@@ -1,0 +1,14 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 90px
+  }
+
+  #nav-header {
+    color: black;
+    size: 1em !important;
+    margin: 0;
+  }
