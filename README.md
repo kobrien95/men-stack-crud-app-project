@@ -1,4 +1,4 @@
-![name of image](./images/tracker-shoes.png)
+![name of image](./images/Tracker-shoes.png)
 
 <a href="https://github.com/kobrien95/men-stack-crud-app-project.git">Click Here To Add Some Shoes To Your Closet</a>
 
